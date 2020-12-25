@@ -1,0 +1,43 @@
+lane :appCenterUpload do
+                appcenter_upload(
+                                api_token: '4ccf68432eab546db95b094b4760fa6f323f3b92',
+                                owner_name: 'Flutter-Demo-Reddy',
+                                app_name: 'flutter',
+                                apk: "/Users/publicissapient/.jenkins/workspace/Flutter_UFA/skeleton_app/build/app/outputs/flutter-apk/app-release.apk",
+                                destinations: 'Demo-Reddy-Test',
+                                notify_testers: true
+                        )
+end
+
+
+
+#########Uploading ipA & Dsym files to AppCenter ###############
+desc "upload to app center"
+  lane :appCenterUpload_ipa do
+    appcenter_upload(
+    api_token: '4ccf68432eab546db95b094b4760fa6f323f3b92',
+    owner_name: 'Flutter-Demo-Reddy',
+    app_name: 'flutter-iOS',
+    ipa: "/Users/publicissapient/Reddy-Data/Fastlane/appcenter/ios/ufa.ipa",
+    dsym: "/Users/publicissapient/Reddy-Data/Fastlane/appcenter/ios/ufa.app.dSYM.zip",
+    notify_testers: true
+    )
+    end
+
+
+
+
+##################Creating .ipa File ###########
+
+desc "building a ipa file from the below location"
+lane :adhoc_build_ipa do
+  gym(
+    workspace: "/Users/publicissapient/.jenkins/workspace/Flutter_UFA/skeleton_app/ios/Runner.xcworkspace",
+    configuration: "Release",
+    scheme: "Runner",
+    codesigning_identity: "iPhone Distribution: Lourdhuraju Periyathambi (T7YPQ6432N)",
+    export_options: "/Users/publicissapient/Reddy-Data/Flutter_UFA_Code/reference_architecture/skeleton_app/ios/ufa_export_options.plist",
+    clean: true,
+    output_directory: "ios",
+    output_name: "ufa.ipa",
+
