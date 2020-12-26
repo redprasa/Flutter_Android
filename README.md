@@ -3,7 +3,7 @@
 
 Flutter-installations-CI/CD-Pipelines:
 Skip to end of metadata
-Created by Anish Ramachandran, last modified by Reddy Prasad on Sep 10, 2020
+Created by Reddy Prasad, last modified by Reddy Prasad on Sep 10, 2020
 Go to start of metadata
 Flutter-UFA
 Steps:
